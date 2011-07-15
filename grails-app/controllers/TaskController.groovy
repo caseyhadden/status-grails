@@ -1,3 +1,7 @@
+import grails.converters.JSON
+
+import org.grails.taggable.*
+
 class TaskController {
 
     static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
@@ -14,6 +18,7 @@ class TaskController {
     def create = {
         def taskInstance = new Task()
         taskInstance.properties = params
+        taskInstance.tags = params.tags
         return [taskInstance: taskInstance]
     }
 
@@ -50,19 +55,24 @@ class TaskController {
         }
     }
 
+    def tags = {
+        render Tag.findAllByNameIlike("${params.term}%")*.name as JSON
+    }
+
     def update = {
         def taskInstance = Task.get(params.id)
         if (taskInstance) {
             if (params.version) {
                 def version = params.version.toLong()
                 if (taskInstance.version > version) {
-                    
+
                     taskInstance.errors.rejectValue("version", "default.optimistic.locking.failure", [message(code: 'task.label', default: 'Task')] as Object[], "Another user has updated this Task while you were editing")
                     render(view: "edit", model: [taskInstance: taskInstance])
                     return
                 }
             }
             taskInstance.properties = params
+            taskInstance.tags = params.tags
             if (!taskInstance.hasErrors() && taskInstance.save(flush: true)) {
                 flash.message = "${message(code: 'default.updated.message', args: [message(code: 'task.label', default: 'Task'), taskInstance.id])}"
                 redirect(action: "show", id: taskInstance.id)
