@@ -11,5 +11,6 @@ class Task implements Taggable
     static constraints = {
         description(blank: false)
         entry(blank: false)
+        completion(nullable: true)
     }
 }

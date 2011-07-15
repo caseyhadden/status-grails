@@ -8,6 +8,13 @@
         <g:set var="entityName" value="${message(code: 'task.label', default: 'Task')}" />
         <title><g:message code="default.create.label" args="[entityName]" /></title>
         <r:require module="tagit"/>
+        <script type="text/javascript">
+            $(document).ready(function()
+            {
+                $("#entry").datepicker({dateFormat: 'yy/mm/dd'});
+                $("#completion").datepicker({dateFormat: 'yy/mm/dd'});
+            })
+        </script>
     </head>
     <body>
         <div class="nav">
@@ -43,7 +50,7 @@
                                     <label for="entry"><g:message code="task.entry.label" default="Entry" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: taskInstance, field: 'entry', 'errors')}">
-                                    <g:datePicker name="entry" precision="day" value="${taskInstance?.entry}"  />
+                                    <input type="text" id="entry" />
                                 </td>
                             </tr>
 
@@ -52,7 +59,7 @@
                                     <label for="completion"><g:message code="task.completion.label" default="Completion" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: taskInstance, field: 'completion', 'errors')}">
-                                    <g:datePicker name="completion" precision="day" value="${taskInstance?.completion}"  />
+                                    <input type="text" id="completion" />
                                 </td>
                             </tr>
 
