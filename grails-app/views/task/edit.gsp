@@ -51,6 +51,15 @@
                         
                             <tr class="prop">
                                 <td valign="top" class="name">
+                                  <label for="modified"><g:message code="task.modified.label" default="Modified" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: taskInstance, field: 'modified', 'errors')}">
+                                    <g:datePicker name="modified" precision="day" value="${taskInstance?.modified}"  />
+                                </td>
+                            </tr>
+
+                            <tr class="prop">
+                                <td valign="top" class="name">
                                   <label for="completion"><g:message code="task.completion.label" default="Completion" /></label>
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: taskInstance, field: 'completion', 'errors')}">

@@ -27,6 +27,8 @@
                             <g:sortableColumn property="description" title="${message(code: 'task.description.label', default: 'Description')}" />
                         
                             <g:sortableColumn property="entry" title="${message(code: 'task.entry.label', default: 'Entry')}" />
+
+                            <g:sortableColumn property="modified" title="${message(code: 'task.modified.label', default: 'Modified')}" />
                         
                             <g:sortableColumn property="completion" title="${message(code: 'task.completion.label', default: 'Completion')}" />
                         
@@ -43,6 +45,8 @@
                             <td>${fieldValue(bean: taskInstance, field: "description")}</td>
                         
                             <td><g:formatDate date="${taskInstance.entry}" /></td>
+
+                            <td><g:formatDate date="${taskInstance.modified}" /></td>
                         
                             <td><g:formatDate date="${taskInstance.completion}" /></td>
                         

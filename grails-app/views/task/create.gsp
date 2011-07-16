@@ -12,6 +12,7 @@
             $(document).ready(function()
             {
                 $("#entry").datepicker({dateFormat: 'yy/mm/dd'});
+                $("#modified").datepicker({dateFormat: 'yy/mm/dd'});
                 $("#completion").datepicker({dateFormat: 'yy/mm/dd'});
             })
         </script>
@@ -51,6 +52,15 @@
                                 </td>
                                 <td valign="top" class="value ${hasErrors(bean: taskInstance, field: 'entry', 'errors')}">
                                     <input type="text" id="entry" />
+                                </td>
+                            </tr>
+
+                            <tr class="prop">
+                                <td valign="top" class="name">
+                                    <label for="modified"><g:message code="task.modified.label" default="Modified" /></label>
+                                </td>
+                                <td valign="top" class="value ${hasErrors(bean: taskInstance, field: 'modified', 'errors')}">
+                                    <input type="text" id="modified" />
                                 </td>
                             </tr>
 

@@ -44,6 +44,13 @@
                         </tr>
                     
                         <tr class="prop">
+                            <td valign="top" class="name"><g:message code="task.modified.label" default="Modified" /></td>
+                            
+                            <td valign="top" class="value"><g:formatDate date="${taskInstance?.modified}" /></td>
+                            
+                        </tr>
+
+                        <tr class="prop">
                             <td valign="top" class="name"><g:message code="task.completion.label" default="Completion" /></td>
                             
                             <td valign="top" class="value"><g:formatDate date="${taskInstance?.completion}" /></td>
