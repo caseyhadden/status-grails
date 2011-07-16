@@ -1,0 +1,12 @@
+A manager had his team send weekly status reports of the form:
+
+    Last week:
+
+    This week:
+
+    Problems / issues:
+
+I have found this to be a fairly simple model and good test run
+for new frameworks and learning.
+
+This is an implementation of that based on grails.
